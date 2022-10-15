@@ -29,3 +29,9 @@ jobs:
       with:
         name: sampleapi-artifact
         path: /tmp/sampleapi
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v3
+      with:
+        name: my-artifact
+    - name: Display structure of downloaded files
+      run: ls -R
