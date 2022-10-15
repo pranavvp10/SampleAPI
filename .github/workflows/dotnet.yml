@@ -23,7 +23,9 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       run: dotnet publish -c Release -o /tmp/sampleapi
-    - name: tmp
-      run: ls
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - uses: actions/upload-artifact@v3
+      with:
+        name: sampleapi-artifact
+        path: /tmp/sampleapi
