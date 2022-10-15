@@ -23,8 +23,6 @@ jobs:
       run: dotnet build --no-restore
     - name: Publish
       run: dotnet publish -c Release -o /tmp/sampleapi
-    - name: change directory
-      run: cd tmp
     - name: tmp
       run: ls
     - name: Test
