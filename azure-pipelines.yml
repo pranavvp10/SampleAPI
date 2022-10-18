@@ -33,16 +33,11 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'sampleapi'
-    publishLocation: 'Container'
-- task: DownloadBuildArtifacts@1
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop
+- task: DownloadBuildArtifacts@0
   inputs:
-    buildType: 'specific'
-    project: '48a52628-3f8e-46ad-9dd1-848e5034e75d'
-    pipeline: '8'
-    specificBuildWithTriggering: true
-    buildVersionToDownload: 'latest'
+    buildType: 'current'
     downloadType: 'single'
-    artifactName: 'sampleapi'
-    downloadPath: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
+    downloadPath: '$(System.ArtifactsDirectory)'
