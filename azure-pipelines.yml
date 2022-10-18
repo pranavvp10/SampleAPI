@@ -38,7 +38,11 @@ steps:
     publishLocation: 'Container'
 - task: DownloadBuildArtifacts@1
   inputs:
-    buildType: 'current'
+    buildType: 'specific'
+    project: '48a52628-3f8e-46ad-9dd1-848e5034e75d'
+    pipeline: '8'
+    specificBuildWithTriggering: true
+    buildVersionToDownload: 'latest'
     downloadType: 'single'
     artifactName: 'sampleapi'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    downloadPath: '$(Build.ArtifactStagingDirectory)'
