@@ -31,9 +31,8 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: DownloadBuildArtifacts@1
+- task: PublishBuildArtifacts@1
   inputs:
-    buildType: 'current'
-    downloadType: 'single'
-    artifactName: 'sampleapi'
-    downloadPath: '$(System.ArtifactsDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'sampleapi'
+    publishLocation: 'Container'
