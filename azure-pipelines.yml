@@ -31,7 +31,10 @@ steps:
     command: 'publish'
     publishWebProjects: true
 
-- task: PublishBuildArtifacts@1
+
+- task: PublishPipelineArtifact@1
   inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: drop
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'sampleapi'
+    publishLocation: 'pipeline'
+    
