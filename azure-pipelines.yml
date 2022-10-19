@@ -30,11 +30,12 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
+    arguments: '-o $(Build.ArtifactStagingDirectory)'
 
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '/home/vsts/work/1/s/bin/Debug/net6.0/publish/'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
     
